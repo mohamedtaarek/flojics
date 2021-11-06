@@ -1,0 +1,89 @@
+{
+  "name": "flojics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mohamedtaarek/flojics.git",
+  "author": "mohamedtaarek <mtarek.22796@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "clean": "rm -rf dist",
+    "debug": "nodemon --exec babel-node --inspect-brk src/index.js ",
+    "serve": "node dist/index.js",
+    "start": "nodemon src/index.js --exec babel-node",
+    "test": "jest --runInBand --verbose",
+    "coverage": "jest --coverage --runInBand --verbose",
+    "eslint": "eslint src/**/*.js --ignore-pattern \"node_modules/\"",
+    "lint": "eslint src --fix",
+    "release": "npm version patch && git push && git push --tags"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "node",
+      "jest"
+    ],
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended",
+      "plugin:jest/recommended",
+      "prettier"
+    ],
+    "rules": {},
+    "env": {
+      "jest/globals": true,
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "printWidth": 100
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "jest-cli": "^27.3.1",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "mysql2": "^2.3.3-rc.0",
+    "sequel": "^0.3.10",
+    "sequelize": "^6.9.0"
+  }
+}
